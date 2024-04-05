@@ -1,3 +1,5 @@
 I need to implement the following concept:
 
 some squishification function(matrix of weights * column vector of previous layer neurons (their activations obviously) + column vector of biases)
+
+I also need to implement a way to take all of the pixels of an image and use them as the input layer activations;
