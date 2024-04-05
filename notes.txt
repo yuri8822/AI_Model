@@ -1,0 +1,3 @@
+I need to implement the following concept:
+
+some squishification function(matrix of weights * column vector of previous layer neurons (their activations obviously) + column vector of biases)
