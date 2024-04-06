@@ -24,10 +24,6 @@ struct Matrix
         for (int i = 0; i < rows; i++)
         {
             data[i] = new double[cols];
-        }
-
-        for (int i = 0; i < rows; i++)
-        {
             for (int j = 0; j < cols; j++)
             {
                 data[i][j] = B.data[i][j];
@@ -42,10 +38,6 @@ struct Matrix
         for (int i = 0; i < rows; i++)
         {
             data[i] = new double[cols];
-        }
-
-        for (int i = 0; i < rows; i++)
-        {
             for (int j = 0; j < cols; j++)
             {
                 data[i][j] = 0;
