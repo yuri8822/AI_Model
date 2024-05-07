@@ -24,8 +24,6 @@ using namespace std;
 //     M.WriteMatrixFile(C);
 // }
 
-
-
 int main()
 {
     ModelManager MM;
