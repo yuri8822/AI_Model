@@ -11,13 +11,13 @@ using namespace std;
 
 class ModelManager
 {
-    public:
+public:
+    Model model;
     vector<Matrix> matrices;
     int counter = 0;
 
     //////////////////////////////////////////
 
-    
     ModelManager()
     {
         cout << "Model Manager created\n";
@@ -25,6 +25,15 @@ class ModelManager
     void FlattenImage()
     {
         cout << "Flattening images\n";
+    }
+    // Functions to save and load the model:
+    void SaveModel()
+    {
+        cout << "Saving model\n";
+    }
+    void LoadModel()
+    {
+        cout << "Loading model\n";
     }
     void ReadMatrixFiles(int numOfFiles = 2)
     {
