@@ -40,10 +40,9 @@ struct Model
             Neuron n;
             n.bias = rand() % 1000 / 1000.0;
             n.activation = rand() % 1000 / 1000.0;
-            n.weights.resize(inputLayer.size());
             for (int j = 0; j < inputLayer.size(); j++)
             {
-                n.weights[j] = rand() % 1000 / 1000.0;
+                n.weights.push_back(rand() % 1000 / 1000.0);
             }
             hiddenLayer1.push_back(n);
         }
@@ -54,10 +53,9 @@ struct Model
             Neuron n;
             n.bias = rand() % 1000 / 1000.0;
             n.activation = rand() % 1000 / 1000.0;
-            n.weights.resize(hiddenLayer1.size());
             for (int j = 0; j < hiddenLayer1.size(); j++)
             {
-                n.weights[j] = rand() % 1000 / 1000.0;
+                n.weights.push_back(rand() % 1000 / 1000.0);
             }
             hiddenLayer2.push_back(n);
         }
@@ -68,10 +66,9 @@ struct Model
             Neuron n;
             n.bias = rand() % 1000 / 1000.0;
             n.activation = rand() % 1000 / 1000.0;
-            n.weights.resize(hiddenLayer2.size());
             for (int j = 0; j < hiddenLayer2.size(); j++)
             {
-                n.weights[j] = rand() % 1000 / 1000.0;
+                n.weights.push_back(rand() % 1000 / 1000.0);
             }
             outputLayer.push_back(n);
         }
