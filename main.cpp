@@ -4,6 +4,7 @@
 #include <fstream>
 #include <sstream>
 #include <filesystem>
+#include <time.h>
 
 #include "ModelManager.h"
 
@@ -26,44 +27,8 @@ using namespace std;
 
 int main()
 {
+    srand(time(NULL));
+    
     ModelManager MM;
 
-    int choose;
-        while(1)
-        {
-            system("CLS");
-            cout
-                << "~~~~~~~~~~~~~~~~ Menu ~~~~~~~~~~~~~~~~\n\n"
-                << "1.Convert Images into .Matrix file\n"
-                << "2.Start Training\n"
-                << "3.\n"
-                << "4.Exit\n\n";
-            cin >> choose;
-            switch(choose)
-            {
-                case 1:
-                    
-                    system("PAUSE");
-                    break;
-    
-                case 2:
-                    
-                    system("PAUSE");
-                    break;
-    
-                case 3:
-                    
-                    system("PAUSE");
-                    break;
-    
-                case 4:
-                    return 0;
-                    break;
-    
-                default:
-                    cout << "Please choose a valid option!\n";
-                    system("PAUSE");
-                    break;
-            }
-        }
 }
