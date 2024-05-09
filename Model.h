@@ -25,7 +25,7 @@ struct Model
 
     Model()
     {
-        // Initialize input layer
+        // Initialize input layer with biases
         for (int i = 0; i < 256; i++)
         {
             Neuron n;
@@ -34,7 +34,7 @@ struct Model
             inputLayer.push_back(n);
         }
 
-        // Initialize hidden layer 1 with weights
+        // Initialize hidden layer 1 with weights and biases
         for (int i = 0; i < 16; i++)
         {
             Neuron n;
@@ -47,7 +47,7 @@ struct Model
             hiddenLayer1.push_back(n);
         }
 
-        // Initialize hidden layer 2 with weights
+        // Initialize hidden layer 2 with weights and biases
         for (int i = 0; i < 16; i++)
         {
             Neuron n;
@@ -60,7 +60,7 @@ struct Model
             hiddenLayer2.push_back(n);
         }
 
-        // Initialize output layer with weights
+        // Initialize output layer with weights and biases
         for (int i = 0; i < 10; i++)
         {
             Neuron n;
