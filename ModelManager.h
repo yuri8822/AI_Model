@@ -11,16 +11,30 @@ using namespace std;
 
 class ModelManager
 {
+private:
+    int counter = 0;
+
 public:
     Model model;
     vector<Matrix> matrices;
-    int counter = 0;
 
     //////////////////////////////////////////
 
     ModelManager()
     {
         cout << "Model Manager created\n";
+    }
+    void ForwardPropogation()
+    {
+    }
+    void CalculateError()
+    {
+    }
+    void BackPropogation()
+    {
+    }
+    void RelU()
+    {
     }
     void FlattenImage()
     {
