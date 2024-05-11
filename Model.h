@@ -3,7 +3,7 @@
 
 using namespace std;
 
-// the model wiil contain a 256 input layer followed by 2 16 hidden layers and a 10 output layer.
+// the model wiil contain a 784 input layer followed by 2 16 hidden layers and a 10 output layer.
 
 struct Neuron
 {
@@ -14,7 +14,7 @@ struct Neuron
 
 struct Model
 {
-    // input layer has 256 neurons
+    // input layer has 784 neurons
     vector<Neuron> inputLayer;
     // hidden layer 1 has 16 neurons
     vector<Neuron> hiddenLayer1;
