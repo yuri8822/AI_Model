@@ -31,4 +31,6 @@ int main()
     
     ModelManager MM;
 
+    MM.SaveModel();
+    // MM.LoadModel();
 }
