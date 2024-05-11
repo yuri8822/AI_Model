@@ -26,7 +26,7 @@ struct Model
     Model()
     {
         // Initialize input layer with biases
-        for (int i = 0; i < 256; i++)
+        for (int i = 0; i < 784; i++)
         {
             Neuron n;
             n.bias = rand() % 1000 / 1000.0;

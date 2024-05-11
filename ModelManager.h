@@ -24,6 +24,10 @@ public:
     {
         cout << "Model Manager created\n";
     }
+    void UseModel()
+    {
+        
+    }
     void ForwardPropogation()
     {
     }
