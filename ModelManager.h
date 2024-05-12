@@ -22,7 +22,11 @@ public:
 
     ModelManager()
     {
-        cout << "Model Manager created\n";
+        cout << "Model Manager Started\n";
+    }
+    void TrainModel()
+    {
+        
     }
     void UseModel()
     {
@@ -39,10 +43,6 @@ public:
     }
     void RelU()
     {
-    }
-    void FlattenImage()
-    {
-        cout << "Flattening images\n";
     }
     // Functions to save and load the model:
     void SaveModel()
@@ -94,6 +94,76 @@ public:
     void LoadModel()
     {
         cout << "Loading model\n";
+
+        ifstream Load("Model.dat");
+        string line;
+
+        // clearing the model:
+        model.inputLayer.clear();
+        model.hiddenLayer1.clear();
+        model.hiddenLayer2.clear();
+        model.outputLayer.clear();
+
+        // resizing the model:
+        model.inputLayer.resize(784);
+        model.hiddenLayer1.resize(16);
+        model.hiddenLayer2.resize(16);
+        model.outputLayer.resize(10);
+
+        // Load input layer:
+        for (int i = 0; i < model.inputLayer.size(); i++)
+        {
+            getline(Load, line);
+            model.inputLayer[i].activation = stod(line);
+            getline(Load, line);
+            model.inputLayer[i].bias = stod(line);
+        }
+        // Load hidden layer 1:
+        for (int i = 0; i < model.hiddenLayer1.size(); i++)
+        {
+            getline(Load, line);
+            model.hiddenLayer1[i].activation = stod(line);
+            getline(Load, line);
+            model.hiddenLayer1[i].bias = stod(line);
+
+            for (int j = 0; j < model.hiddenLayer1[i].weights.size(); j++)
+            {
+                getline(Load, line);
+                model.hiddenLayer1[i].weights[j] = stod(line);
+            }
+        }
+        // Load hidden layer 2:
+        for (int i = 0; i < model.hiddenLayer2.size(); i++)
+        {
+            getline(Load, line);
+            model.hiddenLayer2[i].activation = stod(line);
+            getline(Load, line);
+            model.hiddenLayer2[i].bias = stod(line);
+
+            for (int j = 0; j < model.hiddenLayer2[i].weights.size(); j++)
+            {
+                getline(Load, line);
+                model.hiddenLayer2[i].weights[j] = stod(line);
+            }
+        }
+        // Load output layer:
+        for (int i = 0; i < model.outputLayer.size(); i++)
+        {
+            getline(Load, line);
+            model.outputLayer[i].activation = stod(line);
+            getline(Load, line);
+            model.outputLayer[i].bias = stod(line);
+
+            for (int j = 0; j < model.outputLayer[i].weights.size(); j++)
+            {
+                getline(Load, line);
+                model.outputLayer[i].weights[j] = stod(line);
+            }
+        }
+
+        Load.close();
+
+        cout << "Model loaded\n";
     }
     void ReadMatrixFiles(int numOfFiles = 2)
     {
