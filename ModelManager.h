@@ -26,11 +26,9 @@ public:
     }
     void TrainModel()
     {
-        
     }
     void UseModel()
     {
-        
     }
     void ForwardPropogation()
     {
@@ -169,26 +167,38 @@ public:
 
         cout << "Model loaded\n";
     }
-    void ReadMatrixFiles(int numOfFiles = 2)
+    void ReadMatrixFile(string fileName = "A.matrix")
     {
-        char option = 'A';
-        string fileName;
         string line;
 
-        for (int i = 0; i < numOfFiles; i++)
+        ifstream File(fileName);
+        vector<vector<double>> data;
+        int rows = 0;
+        int cols = 0;
+
+        while (getline(File, line))
         {
-            option += i;
-            fileName = option;
-            fileName += ".matrix";
-            cout << "\nFile: " << fileName << " :-\n";
+            // If a blank line is encountered, treat it as the end of a matrix
+            if (line.empty())
+            {
+                Matrix newMatrix(rows, cols);
+                for (int i = 0; i < rows; i++)
+                {
+                    for (int j = 0; j < cols; j++)
+                    {
+                        newMatrix.data[i][j] = data[i][j];
+                    }
+                }
 
-            ifstream File(fileName);
+                cout << "rows: " << rows << ", cols: " << cols << "\n";
+                matrices.push_back(newMatrix);
 
-            vector<vector<double>> data;
-            int rows = 0;
-            int cols = 0;
-
-            while (getline(File, line))
+                // Reset data, rows, and cols for the next matrix
+                data.clear();
+                rows = 0;
+                cols = 0;
+            }
+            else
             {
                 stringstream ss(line);
                 string element;
@@ -201,7 +211,11 @@ public:
                 rows++;
                 cols = row.size();
             }
+        }
 
+        // Handle the last matrix in the file
+        if (!data.empty())
+        {
             Matrix newMatrix(rows, cols);
             for (int i = 0; i < rows; i++)
             {
