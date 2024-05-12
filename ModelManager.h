@@ -16,7 +16,7 @@ private:
 
 public:
     Model model;
-    vector<Matrix> matrices;
+    vector<Matrix> images;
 
     //////////////////////////////////////////
 
@@ -179,26 +179,7 @@ public:
         while (getline(File, line))
         {
             // If a blank line is encountered, treat it as the end of a matrix
-            if (line.empty())
-            {
-                Matrix newMatrix(rows, cols);
-                for (int i = 0; i < rows; i++)
-                {
-                    for (int j = 0; j < cols; j++)
-                    {
-                        newMatrix.data[i][j] = data[i][j];
-                    }
-                }
-
-                cout << "rows: " << rows << ", cols: " << cols << "\n";
-                matrices.push_back(newMatrix);
-
-                // Reset data, rows, and cols for the next matrix
-                data.clear();
-                rows = 0;
-                cols = 0;
-            }
-            else
+            if (!line.empty())
             {
                 stringstream ss(line);
                 string element;
@@ -211,22 +192,41 @@ public:
                 rows++;
                 cols = row.size();
             }
+            else
+            {
+                Matrix newImage(rows, cols);
+                for (int i = 0; i < rows; i++)
+                {
+                    for (int j = 0; j < cols; j++)
+                    {
+                        newImage.data[i][j] = data[i][j];
+                    }
+                }
+
+                cout << "rows: " << rows << ", cols: " << cols << "\n";
+                images.push_back(newImage);
+
+                // Reset data, rows, and cols for the next matrix
+                data.clear();
+                rows = 0;
+                cols = 0;
+            }
         }
 
         // Handle the last matrix in the file
         if (!data.empty())
         {
-            Matrix newMatrix(rows, cols);
+            Matrix newImage(rows, cols);
             for (int i = 0; i < rows; i++)
             {
                 for (int j = 0; j < cols; j++)
                 {
-                    newMatrix.data[i][j] = data[i][j];
+                    newImage.data[i][j] = data[i][j];
                 }
             }
 
             cout << "rows: " << rows << ", cols: " << cols << "\n";
-            matrices.push_back(newMatrix);
+            images.push_back(newImage);
         }
     }
     void WriteMatrixFile(const Matrix &matrix)

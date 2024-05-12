@@ -31,6 +31,13 @@ int main()
     
     ModelManager MM;
 
-    MM.SaveModel();
+    MM.ReadMatrixFile();
+
+    for (int i = 0; i < MM.images.size(); i++)
+    {
+        MM.images[i].Display();
+    }
+
+    // MM.SaveModel();
     // MM.LoadModel();
 }
