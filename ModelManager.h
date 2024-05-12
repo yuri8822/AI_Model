@@ -90,6 +90,10 @@ public:
                 Save << model.outputLayer[i].weights[j] << "\n";
             }
         }
+
+        Save.close();
+
+        cout << "Model saved\n";
     }
     void LoadModel()
     {
