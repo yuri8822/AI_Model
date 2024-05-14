@@ -13,6 +13,8 @@ class ModelManager
 {
 private:
     int counter = 0;
+    int label = 0;
+
 
 public:
     Model model;
@@ -178,7 +180,6 @@ public:
 
         while (getline(File, line))
         {
-            // If a blank line is encountered, treat it as the end of a matrix
             if (!line.empty())
             {
                 stringstream ss(line);
@@ -192,7 +193,7 @@ public:
                 rows++;
                 cols = row.size();
             }
-            else
+            else // If a blank line is encountered, treat it as the end of a matrix
             {
                 Matrix newImage(rows, cols);
                 for (int i = 0; i < rows; i++)
