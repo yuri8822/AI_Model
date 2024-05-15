@@ -171,6 +171,18 @@ public:
     }
     void ReadMatrixFile(string fileName = "A.matrix")
     {
-        
+        ifstream Read(fileName);
+        string line;
+
+        vector<vector<double>> data;
+        bool label;
+
+        while(getline(Read, line))
+        {
+            if (!line.empty())
+            {
+                Image newImage;
+            }
+        }
     }
 };
