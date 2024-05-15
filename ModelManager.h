@@ -4,7 +4,7 @@
 #include <fstream>
 #include <sstream>
 
-#include "Matrix.h"
+#include "Image.h"
 #include "Model.h"
 
 using namespace std;
@@ -18,7 +18,7 @@ private:
 
 public:
     Model model;
-    vector<Matrix> images;
+    vector<Image> images;
 
     //////////////////////////////////////////
 

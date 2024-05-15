@@ -1,22 +1,25 @@
 #pragma once
 
+// My Library for image handeling in C++ (Matrix library)
+
 using namespace std;
 
-struct Matrix
+struct Image
 {
+    int label;
     int rows;
     int cols;
     double **data;
 
     // Default constructor:
-    Matrix()
+    Image()
     {
         rows = 0;
         cols = 0;
         data = nullptr;
     }
     // Copy constructor:
-    Matrix(const Matrix &B)
+    Image(const Image &B)
     {
         rows = B.rows;
         cols = B.cols;
@@ -30,7 +33,7 @@ struct Matrix
             }
         }
     }
-    Matrix(int rows, int cols)
+    Image(int rows, int cols)
     {
         this->rows = rows;
         this->cols = cols;
@@ -55,7 +58,7 @@ struct Matrix
             cout << "\n";
         }
     }
-    Matrix operator=(const Matrix &B)
+    Image operator=(const Image &B)
     {
         if (this != &B)
         {
@@ -79,7 +82,7 @@ struct Matrix
         }
         return *this;
     }
-    Matrix operator*(const Matrix &B)
+    Image operator*(const Image &B)
     {
         if (cols != B.rows)
         {
@@ -87,7 +90,7 @@ struct Matrix
             return *this;
         }
 
-        Matrix Result(rows, B.cols);
+        Image Result(rows, B.cols);
 
         for (int R = 0; R < rows; R++)
         {
@@ -101,7 +104,7 @@ struct Matrix
         }
         return Result;
     }
-    Matrix operator+(const Matrix &B)
+    Image operator+(const Image &B)
     {
         if (rows != B.rows || cols != B.cols)
         {
@@ -109,7 +112,7 @@ struct Matrix
             return *this;
         }
 
-        Matrix Result(rows, cols);
+        Image Result(rows, cols);
 
         for (int R = 0; R < rows; R++)
         {
@@ -120,7 +123,7 @@ struct Matrix
         }
         return Result;
     }
-    ~Matrix()
+    ~Image()
     {
         for (int i = 0; i < rows; i++)
         {
