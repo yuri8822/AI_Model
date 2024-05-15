@@ -1,22 +1,34 @@
 import os
+import random
 from PIL import Image
 
-# Loop through each subdirectory in the trainingSet directory
+# Store all image paths and labels
+image_paths = []
 for digit in range(10):
     directory = f"trainingSet/{digit}/"
-    output_file = open(f"trainingSet_{digit}.matrix", "w")
-
-    # Loop through each file in the subdirectory
     for filename in os.listdir(directory):
         if filename.endswith(".jpg"):
-            img = Image.open(directory + filename)
-            pixels = list(img.getdata())
+            image_paths.append((directory + filename, digit))
 
-            # Write each pixel value in a column
-            for pixel in pixels:
-                output_file.write(str(pixel) + "\n")
+# Shuffle the image paths
+random.shuffle(image_paths)
 
-            # Add a line space after each column
-            output_file.write("\n")
+# Open a single output file
+output_file = open("trainingSet.matrix", "w")
 
-    output_file.close()
+# Loop through each image path
+for image_path, label in image_paths:
+    img = Image.open(image_path)
+    pixels = list(img.getdata())
+
+    # Write the label as the first entry
+    output_file.write(str(label) + "\n")
+
+    # Write each pixel value in a column
+    for pixel in pixels:
+        output_file.write(str(pixel) + "\n")
+
+    # Add a line space after each column
+    output_file.write("\n")
+
+output_file.close()
