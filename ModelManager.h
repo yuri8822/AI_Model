@@ -12,7 +12,7 @@ using namespace std;
 class ModelManager
 {
 private:
-    int counter = 0;
+    int counter = 1;
     int label = 0;
 
 
@@ -174,15 +174,39 @@ public:
         ifstream Read(fileName);
         string line;
 
-        vector<vector<double>> data;
-        bool label;
+        vector<double> elements;
+        bool isLabel = true;
+        int label;
 
-        while(getline(Read, line))
+        while(!Read.eof())
         {
+            getline(Read, line);
+
             if (!line.empty())
             {
-                Image newImage;
+                if (isLabel)
+                {
+                    label = stoi(line);
+                    isLabel = false;
+                }
+                else
+                {
+                    elements.push_back(stod(line));
+                }
+            }
+            else
+            {
+                isLabel = true;
+                Image newImage(elements.size(), 1, label);
+                for (int i = 0; i < newImage.rows; i++)
+                {
+                    newImage.data[i][0] = elements[i];
+                }
+                // newImage.Display();
+                elements.clear();
+                images.push_back(newImage);
             }
         }
+        Read.close();
     }
 };

@@ -6,9 +6,9 @@ using namespace std;
 
 struct Image
 {
-    int label;
     int rows;
     int cols;
+    int label;
     double **data;
 
     // Default constructor:
@@ -16,6 +16,7 @@ struct Image
     {
         rows = 0;
         cols = 0;
+        label = 0;
         data = nullptr;
     }
     // Copy constructor:
@@ -23,6 +24,7 @@ struct Image
     {
         rows = B.rows;
         cols = B.cols;
+        label = B.label;
         data = new double *[rows];
         for (int i = 0; i < rows; i++)
         {
@@ -47,8 +49,24 @@ struct Image
             }
         }
     }
+    Image(int rows, int cols, int label)
+    {
+        this->rows = rows;
+        this->cols = cols;
+        this->label = label;
+        data = new double *[rows];
+        for (int i = 0; i < rows; i++)
+        {
+            data[i] = new double[cols];
+            for (int j = 0; j < cols; j++)
+            {
+                data[i][j] = 0;
+            }
+        }
+    }
     void Display()
     {
+        cout << "Label: " << label << endl;
         for (int i = 0; i < rows; i++)
         {
             for (int j = 0; j < cols; j++)
@@ -70,6 +88,7 @@ struct Image
 
             rows = B.rows;
             cols = B.cols;
+            label = B.label;
             data = new double *[rows];
             for (int i = 0; i < rows; i++)
             {

@@ -15,6 +15,12 @@ int main()
     srand(time(NULL));
     
     ModelManager MM;
+    MM.ReadMatrixFile();
+
+    for (int i = 0; i < MM.images.size(); i++)
+    {
+        MM.images[i].Display();
+    }
     // MM.SaveModel();
     // MM.LoadModel();
 }
