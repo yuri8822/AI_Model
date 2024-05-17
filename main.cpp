@@ -15,7 +15,6 @@ int main()
     srand(time(NULL));
     
     ModelManager MM;
-    MM.ReadMatrixFile("trainingSet.matrix");
 
     // Display all stored Images of the dataset:
     // for (int i = 0; i < MM.images.size(); i++)

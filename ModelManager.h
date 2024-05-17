@@ -28,6 +28,21 @@ public:
     }
     void TrainModel()
     {
+        // Load the saved state of the model:
+        LoadModel();
+        // Read the dataset into memory (vector of images):
+        ReadMatrixFile("trainingSet.matrix");
+
+        for (int i = 0; i < images.size(); i++)
+        {
+            for (int j = 0; j < model.inputLayer.size(); j++)
+            {
+                model.inputLayer[j].activation = images[i].data[j][0];
+            }
+
+            // training begins here:
+            
+        }
     }
     void UseModel()
     {
