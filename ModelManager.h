@@ -30,6 +30,7 @@ public:
     {
         // Load the saved state of the model:
         LoadModel();
+        SaveModel();
         // Read the dataset into memory (vector of images):
         ReadMatrixFile("trainingSet.matrix");
 

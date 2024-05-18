@@ -16,17 +16,8 @@ int main()
     
     ModelManager MM;
 
-    MM.TrainModel();
-
-    // Display all stored Images of the dataset:
-    // for (int i = 0; i < MM.images.size(); i++)
-    // {
-    //     MM.images[i].Display();
-    // }
+    MM.TrainModel(); // there is an issue when loading and then saving!
 
     // Display the number of Images stored in memory:
     // cout << MM.images.size() << endl;
-
-    // MM.SaveModel();
-    // MM.LoadModel();
 }
