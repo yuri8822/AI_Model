@@ -12,7 +12,7 @@ using namespace std;
 class ModelManager
 {
 private:
-    int counter = 1;
+    int startingPoint = 0;
     int label = 0;
 
 
@@ -33,8 +33,10 @@ public:
         // Read the dataset into memory (vector of images):
         ReadMatrixFile("trainingSet.matrix");
 
-        for (int i = 0; i < images.size(); i++)
+        for (int i = startingPoint; i < images.size(); i++)
         {
+            system("CLS");
+            cout << "Progress: " << ((i / double(images.size())) * 100) << endl;
             for (int j = 0; j < model.inputLayer.size(); j++)
             {
                 model.inputLayer[j].activation = images[i].data[j][0];
