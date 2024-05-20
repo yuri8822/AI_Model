@@ -120,18 +120,6 @@ public:
         ifstream Load("Model.dat");
         string line;
 
-        // clearing the model:
-        model.inputLayer.clear();
-        model.hiddenLayer1.clear();
-        model.hiddenLayer2.clear();
-        model.outputLayer.clear();
-
-        // resizing the model:
-        model.inputLayer.resize(784);
-        model.hiddenLayer1.resize(16);
-        model.hiddenLayer2.resize(16);
-        model.outputLayer.resize(10);
-
         // Load input layer:
         for (int i = 0; i < model.inputLayer.size(); i++)
         {
