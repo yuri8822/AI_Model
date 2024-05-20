@@ -24,9 +24,9 @@ for image_path, label in image_paths:
     # Write the label as the first entry
     output_file.write(str(label) + "\n")
 
-    # Write each pixel value in a column
+    # Write each pixel value in a column, normalized to [0, 1]
     for pixel in pixels:
-        output_file.write(str(pixel) + "\n")
+        output_file.write(str(pixel / 255.0) + "\n")
 
     # Add a line space after each column
     output_file.write("\n")

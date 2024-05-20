@@ -43,7 +43,8 @@ public:
             }
 
             // training begins here:
-            
+
+            ForwardPropogation();
         }
     }
     void UseModel()
