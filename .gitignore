@@ -2,5 +2,8 @@ testSet
 trainingSet
 main.exe
 
+test.cpp
+test.exe
+
 # ignore .matrix files:
 *.matrix

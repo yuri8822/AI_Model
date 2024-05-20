@@ -33,6 +33,14 @@ public:
         // Read the dataset into memory (vector of images):
         ReadMatrixFile("trainingSet.matrix");
 
+        // debugging the images stored in memory:
+        // cout << images.size() << endl; // this should be 42000 according to my training set
+        // system("PAUSE");
+        // for (int i = 0; i < images.size(); i++)
+        // {
+        //     images[i].Display();
+        // }
+
         for (int i = startingPoint; i < images.size(); i++)
         {
             system("CLS");
