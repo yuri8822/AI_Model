@@ -16,7 +16,7 @@ int main()
     
     ModelManager MM;
 
-    MM.TrainModel(); // there is an issue when loading and then saving!
+    MM.TrainModel();
 
     // Display the number of Images stored in memory:
     // cout << MM.images.size() << endl;
