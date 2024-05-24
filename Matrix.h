@@ -1,10 +1,19 @@
 #pragma once
+#include <iostream>
+#include <vector>
 
-// My Library for image handeling in C++ (Matrix library)
+// My Library for Matrix handeling in C++ (Matrix library)
 
 using namespace std;
 
-struct Image
+struct Neuron
+{
+    double activation;
+    double bias;
+    vector<double> weights;
+};
+
+struct Matrix
 {
     int rows;
     int cols;
@@ -12,7 +21,7 @@ struct Image
     double **data;
 
     // Default constructor:
-    Image()
+    Matrix()
     {
         rows = 0;
         cols = 0;
@@ -20,7 +29,7 @@ struct Image
         data = nullptr;
     }
     // Copy constructor:
-    Image(const Image &B)
+    Matrix(const Matrix &B)
     {
         rows = B.rows;
         cols = B.cols;
@@ -35,7 +44,7 @@ struct Image
             }
         }
     }
-    Image(int rows, int cols)
+    Matrix(int rows, int cols)
     {
         this->rows = rows;
         this->cols = cols;
@@ -49,7 +58,7 @@ struct Image
             }
         }
     }
-    Image(int rows, int cols, int label)
+    Matrix(int rows, int cols, int label)
     {
         this->rows = rows;
         this->cols = cols;
@@ -76,7 +85,7 @@ struct Image
             cout << "\n";
         }
     }
-    Image operator=(const Image &B)
+    Matrix operator=(const Matrix &B)
     {
         if (this != &B)
         {
@@ -101,7 +110,7 @@ struct Image
         }
         return *this;
     }
-    Image operator*(const Image &B)
+    Matrix operator*(const Matrix &B)
     {
         if (cols != B.rows)
         {
@@ -109,7 +118,7 @@ struct Image
             return *this;
         }
 
-        Image Result(rows, B.cols);
+        Matrix Result(rows, B.cols);
 
         for (int R = 0; R < rows; R++)
         {
@@ -123,7 +132,7 @@ struct Image
         }
         return Result;
     }
-    Image operator+(const Image &B)
+    Matrix operator+(const Matrix &B)
     {
         if (rows != B.rows || cols != B.cols)
         {
@@ -131,7 +140,7 @@ struct Image
             return *this;
         }
 
-        Image Result(rows, cols);
+        Matrix Result(rows, cols);
 
         for (int R = 0; R < rows; R++)
         {
@@ -142,7 +151,7 @@ struct Image
         }
         return Result;
     }
-    ~Image()
+    ~Matrix()
     {
         for (int i = 0; i < rows; i++)
         {

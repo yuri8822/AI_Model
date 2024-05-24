@@ -4,7 +4,7 @@
 #include <fstream>
 #include <sstream>
 
-#include "Image.h"
+#include "Matrix.h"
 #include "Model.h"
 
 using namespace std;
@@ -18,7 +18,7 @@ private:
 
 public:
     Model model;
-    vector<Image> images;
+    vector<Matrix> images;
 
     //////////////////////////////////////////
 
@@ -211,7 +211,7 @@ public:
             else
             {
                 isLabel = true;
-                Image newImage(elements.size(), 1, label);
+                Matrix newImage(elements.size(), 1, label);
                 for (int i = 0; i < newImage.rows; i++)
                 {
                     newImage.data[i][0] = elements[i];

@@ -1,16 +1,12 @@
+#pragma once
 #include <iostream>
 #include <vector>
+
+#include "Matrix.h"
 
 using namespace std;
 
 // the model wiil contain a 784 input layer followed by 2 16 hidden layers and a 10 output layer.
-
-struct Neuron
-{
-    double activation;
-    double bias;
-    vector<double> weights;
-};
 
 struct Model
 {
